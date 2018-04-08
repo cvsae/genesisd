@@ -15,6 +15,7 @@ import core.stdc.stdint;
 import core.stdc.stdlib;
 
 
+const uint64_t COIN = 100000000;
 
 
 // encode hex 
@@ -111,7 +112,7 @@ void main() {
   CTransaction txNew = new CTransaction();
   // create new transaction
   txNew.nVersion = 1;
-  txNew.nValue = 5000000000;
+  txNew.nValue = 50 * COIN;
   txNew.prev_output = "0000000000000000000000000000000000000000000000000000000000000000"; 
   txNew.ins = ("04ffff001d0104" ~ to!string(cast(char)(to!int(pszTimestamp.length))).encodeHex ~ pszTimestamp.encodeHex).decodeHex; // input script 
   txNew.ous = "41" ~"04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f" ~"ac".encodeHex.decodeHex; // output script
